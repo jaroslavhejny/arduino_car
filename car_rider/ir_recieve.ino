@@ -25,28 +25,21 @@ enum Arrows {
 int ir_reciever(){
   int direction = 0;
   if (irrecv.decode(&results)) {
-    if (results.value != Arrows(repeat_char)){
-      Serial.println(results.value != Arrows(repeat_char));
       switch (results.value) {
         case arr_up:
-          Serial.println("up");
           direction = 1;
           break;
         case arr_down:
-          Serial.println("down");
           direction = 2;
           break; 
         case arr_left:
-          Serial.println("left");
           direction = 3;
           break;
         case arr_right:
-          Serial.println("right");
           direction = 4;
           break;
         case repeat_char:
           direction = 5;
-          Serial.println("repeat");
           break;
         case ok_button:
           Serial.println("ok");
@@ -79,17 +72,16 @@ int ir_reciever(){
           Serial.println("nine");
           break;
         case zero:
-          Serial.println("zero");
+          direction = 8;
           break;
         case star:
-          Serial.println("star");
+          direction = 6;
           break;
         case hash:
-          Serial.println("hash");
+          direction = 7;
           break;
         default:
-          Serial.println(results.value);
-      }
+          break;
     };
     irrecv.resume();
     return direction;

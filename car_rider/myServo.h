@@ -3,5 +3,6 @@
 
 int rotate_servo();
 int stop_servo();
+int rotate_servo_exact();
 
 #endif
